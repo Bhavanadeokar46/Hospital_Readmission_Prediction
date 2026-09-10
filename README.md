@@ -82,3 +82,37 @@ Machine Learning
 Model Evaluation
    ↓
 Streamlit Application
+
+---
+
+## 🚀 Streamlit Application
+
+The trained Random Forest model is integrated into an interactive Streamlit application.
+
+Users can enter:
+
+- Patient information
+- Hospitalization information
+- Healthcare utilization
+- Laboratory information
+- Diabetes medication information
+- Medication details
+- Diagnosis groups
+
+The application then generates a predicted **30-day hospital readmission risk**.
+
+### 🧑 Patient Information
+
+![Patient Information](screenshots/patient_information.png)
+
+### 🏥 Hospitalization & Healthcare Utilization
+
+![Hospitalization](screenshots/hospitalization.png)
+
+### 💊 Medication Information
+
+![Medication Information](screenshots/medication_information.png)
+
+### 🩺 Diagnosis & Prediction Result
+
+![Prediction Result](screenshots/prediction_result.png)
