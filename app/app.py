@@ -10,8 +10,8 @@ st.set_page_config(
 st.title("🏥 Hospital Readmission Risk Prediction")
 
 st.write(
-    "An AI-based application for predicting the risk of "
-    "30-day hospital readmission."
+    "A machine learning application for estimating the probability "
+    "of 30-day hospital readmission."
 )
 
 st.info(
@@ -186,6 +186,7 @@ with col2:
         value=0
     )
 
+
 # ============================================================
 # LABORATORY & DIABETES INFORMATION
 # ============================================================
@@ -229,6 +230,7 @@ with col2:
         "Medication Change",
         ["Ch", "No"]
     )
+
 
 # ============================================================
 # MEDICATION INFORMATION
@@ -358,6 +360,7 @@ with col3:
         medication_options
     )
 
+
 # ============================================================
 # DIAGNOSIS INFORMATION
 # ============================================================
@@ -408,6 +411,7 @@ with col3:
         "Tertiary Diagnosis",
         diagnosis_groups
     )
+
 
 # ============================================================
 # PREDICTION
@@ -490,17 +494,22 @@ if st.button("Predict Readmission Risk"):
         f"{risk_percentage:.2f}%"
     )
 
+    st.caption(
+        "The percentage shown is the probability estimated by the "
+        "trained machine learning model based on the entered information."
+    )
+
     # Progress bar
     st.progress(float(probability))
 
     if probability >= 0.50:
-        st.error("🔴 High Risk of 30-Day Readmission")
+        st.error("🔴 Higher Estimated Probability")
         st.write(
             "The model estimates a higher probability of "
             "readmission within 30 days."
         )
     else:
-        st.success("🟢 Low Risk of 30-Day Readmission")
+        st.success("🟢 Lower Estimated Probability")
         st.write(
             "The model estimates a lower probability of "
             "readmission within 30 days."
@@ -512,7 +521,8 @@ if st.button("Predict Readmission Risk"):
         "clinical decision-making."
     )
 
-    # ============================================================
+
+# ============================================================
 # PROJECT INFORMATION
 # ============================================================
 
