@@ -18,10 +18,6 @@ Thumbs.db
 # Streamlit
 .streamlit/secrets.toml
 
-# Dataset and database
-data/diabetic_data.csv
-data/hospital_readmission.db
-
 # Large trained model
 models/random_forest.pkl
 
