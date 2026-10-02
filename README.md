@@ -2,11 +2,11 @@
 
 ## 📌 Project Overview
 
-Hospital readmission is an important healthcare challenge. This project develops a machine learning system that predicts whether a diabetic patient is likely to be readmitted to the hospital within 30 days of discharge.
+Hospital readmission is an important healthcare challenge. This project develops a machine learning system to estimate whether a diabetic patient is likely to be readmitted to the hospital within 30 days of discharge.
 
-The project combines data analysis, feature engineering, SQL analytics, machine learning, and Streamlit to create an end-to-end healthcare analytics application.
+The project combines data understanding, data cleaning, exploratory data analysis, feature engineering, SQL analytics, machine learning, model evaluation, and Streamlit to create an end-to-end healthcare analytics application.
 
-> ⚠️ **Disclaimer:** This project is developed for educational and portfolio purposes only. It is not intended for clinical diagnosis or medical decision-making.
+> ⚠️ **Disclaimer:** This project is developed for educational and portfolio purposes only. It is not intended for clinical diagnosis, medical advice, or real-world medical decision-making.
 
 ---
 
@@ -16,7 +16,7 @@ Develop a machine learning system that predicts whether a diabetic patient is li
 
 ### Prediction Question
 
-**Can we identify patients at higher risk of being readmitted within 30 days using information available from their hospital encounter?**
+**Can we identify patients with a higher estimated probability of 30-day readmission using information available from their hospital encounter?**
 
 ---
 
@@ -24,21 +24,43 @@ Develop a machine learning system that predicts whether a diabetic patient is li
 
 The project uses the **Diabetes 130-US Hospitals for Years 1999–2008** dataset.
 
-The dataset contains:
+### Dataset Size
 
-- 101,766 hospital encounters
-- 71,518 unique patients
-- 50 original features
+- **101,766** hospital encounters
+- **71,518** unique patients
+- **50** original features
 
-The data contains information related to:
+The dataset contains information related to:
 
 - Patient demographics
 - Hospital admission and discharge
 - Laboratory procedures
 - Medications
 - Diagnoses
-- Previous healthcare utilization
+- Healthcare utilization
+- Diabetes treatment
 - Readmission status
+
+### Target Variable
+
+The original `readmitted` variable contains three categories:
+
+- `<30` — readmitted within 30 days
+- `>30` — readmitted after 30 days
+- `NO` — not readmitted
+
+For binary classification, these were converted into:
+
+- `1` → Readmitted within 30 days
+- `0` → Not readmitted within 30 days
+
+### Target Distribution
+
+- Not readmitted within 30 days: **90,409**
+- Readmitted within 30 days: **11,357**
+- Overall 30-day readmission rate: **11.16%**
+
+The target variable is imbalanced, so precision, recall, F1-score, and ROC-AUC were considered along with accuracy.
 
 ---
 
@@ -73,7 +95,7 @@ Feature Engineering
    ↓
 SQL Analysis
    ↓
-Train/Test Split
+Patient-Aware Train/Test Split
    ↓
 Data Preprocessing
    ↓
@@ -81,38 +103,8 @@ Machine Learning
    ↓
 Model Evaluation
    ↓
+Hyperparameter Tuning
+   ↓
+Feature Importance Analysis
+   ↓
 Streamlit Application
-
----
-
-## 🚀 Streamlit Application
-
-The trained Random Forest model is integrated into an interactive Streamlit application.
-
-Users can enter:
-
-- Patient information
-- Hospitalization information
-- Healthcare utilization
-- Laboratory information
-- Diabetes medication information
-- Medication details
-- Diagnosis groups
-
-The application then generates a predicted **30-day hospital readmission risk**.
-
-### 🧑 Patient Information
-
-![Patient Information](screenshots/patient_information.png)
-
-### 🏥 Hospitalization & Healthcare Utilization
-
-![Hospitalization](screenshots/hospitalization.png)
-
-### 💊 Medication Information
-
-![Medication Information](screenshots/medication_information.png)
-
-### 🩺 Diagnosis & Prediction Result
-
-![Prediction Result](screenshots/prediction_result.png)

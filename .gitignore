@@ -24,3 +24,6 @@ data/hospital_readmission.db
 
 # Large trained model
 models/random_forest.pkl
+
+# Local backup files
+README_backup.md
