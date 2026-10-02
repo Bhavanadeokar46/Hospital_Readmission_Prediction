@@ -18,8 +18,5 @@ Thumbs.db
 # Streamlit
 .streamlit/secrets.toml
 
-# Large trained model
-models/random_forest.pkl
-
 # Local backup files
 README_backup.md
